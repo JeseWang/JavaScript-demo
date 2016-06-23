@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>JQ实现改变表单</title>
+		<script src="../js/jquery-3.0.0.js"></script>
+	</head>
+	<body>
+		<form action="">
+		<p>属性名：<input type="text" /></p>
+		<p>属性值：<input type="text" /></p>
+		<input type="button" value="确定"/>
+		<input type="submit" value="重置"/>
+		</form>
+		<div style="width:200px;height: 200px;background:blue;padding:20px;color: white;">在上方输入框输入“属性名”及“属性值”，点击确定按钮查看效果。</div>
+		<script>
+			$("input:eq(2)").click(function(){
+				var key = $("input:eq(0)").val();
+				var name = $("input:eq(1)").val();
+				$("div").css(key,name);
+			})
+			
+			
+		</script>
+	</body>
+</html>

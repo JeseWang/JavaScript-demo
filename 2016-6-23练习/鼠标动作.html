@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/jquery-3.0.0.js"></script>
+	</head>
+	<body>
+		<ul>
+			<li><a href="#" title="治疗H7N9禽流感">治疗H7N9禽流感</a></li>
+			<li><a href="#" title="从乞丐的八卦故事">从乞丐的八卦故事</a></li>
+			<li><a href="#" title="韩国总统表示将与朝鲜对话">韩国总统表示将与朝鲜对话</a></li>
+			<li><a href="#" title="习近平检阅海军驻三亚部队">习近平检阅海军驻三亚部队</a></li>
+			<li><a href="#" title="禽流感高危">禽流感高危</a></li>
+		</ul>
+		<script>
+			$("a").bind("mouseover",function(){
+				$("<div></div>").appendTo("body").append($(this).attr("title")).addClass("d1").css("background","greenyellow").css("width","200px");
+				$(this).attr("title","");
+				
+			}).bind("mouseout",function(){
+				$("div").remove();
+				$(this).attr("title",function(){
+					return $(this).text();
+				})
+			}).bind("mousemove",function(){
+				$("div").offset({left:event.pageX+15,top:event.pageY})
+//				console.log(event.pageX+" "+event.pageY)
+//				$("div").offset(event.pageX,event.pageY)
+			});
+			
+		</script>
+	</body>
+</html>

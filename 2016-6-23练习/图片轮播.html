@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>JQ实现图片轮播</title>
+		<script src="../js/jquery-3.0.0.js"></script>
+		<style>
+			div{
+				width: 600px;
+				margin: 0 auto;
+				position: relative;
+			}
+			span{
+				/*display: block;*/
+				font-size: 100px;
+				position: absolute;
+				z-index: 1;
+				background-color: rgba(255,255,255,.5);
+				top: 120px;
+				cursor: pointer;
+			}
+			#span2{
+				right: 0;
+			}
+			img{
+				width: 600px;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<span><</span>
+			<img src="img/1.jpg"/>
+			<span id="span2">></span>
+		</div>
+		<script>
+			var i = 1;
+			function run0(){
+				i--;
+				if(i == 0){
+					i = 5;
+				}
+				$("img").attr("src","img/"+i+".jpg");
+			}
+			function run1(){
+				i++;
+				if(i==6){
+					i = 1;
+				}
+				$("img").attr("src","img/"+i+".jpg");
+			}
+			
+			$("span:eq(0)").click(run0);
+			$("span:eq(1)").click(run1);
+			setInterval(run1,2500);
+			
+		</script>
+	</body>
+</html>
