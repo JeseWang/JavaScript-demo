@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>距离结婚天数</title>
+<link rel="stylesheet" href="style.css"  />
+<style>
+.txtshow{
+	background-color:red;
+	text-align:center;
+	font-size:30px;
+	width:500px;
+	margin:0 auto;
+}
+.name{
+	color:yellow;
+	font-size:50px;
+}
+#timeShow{
+	color:yellow;
+	font-size:50px;
+}
+</style>
+</head>
+<script language="javascript" type="text/javascript">     
+  window.onload = function(){
+　　var timedate= new Date("2016,4,12");     //自定义结束时间  
+　　var now =  new Date()  ;    //获取当前时间
+　　var date = now.getTime() - timedate.getTime();    //得出的为毫秒
+　　var time = Math.ceil(date/(1000*60*60*24)) ;  //1000 * 60 * 60 * 24一天的秒数
+    if(true){
+      document.getElementById('timeShow').innerHTML = time;
+	}
+    }
+</script>
+</head>
+<body>
+   <div class="content2">
+    <div class="txtshow"><span class="name">王琦</span>和<span class="name">杜娟</span>结婚共<span  id="timeShow"></span>天</div>
+   </div>
+</body>
+</html>
