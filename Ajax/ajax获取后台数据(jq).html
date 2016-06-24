@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>ajax抓取后台数据</title>
+		<script src="js/jquery-3.0.0.js"></script>
+	</head>
+	<body>
+		<div><button>获取菜单</button></div>
+		<div class="menu"></div>
+		
+		<script>
+			var url = "http://localhost:5000/my-objects";
+			$("button").click(function(e){
+				//$.get(url)以异步获取指定url上的数据
+				$.get(url,function(date,status,obj){
+					if(status == "success"){
+						//把从服务器获取数据字符串编程json对象
+//						mydate = JSON.parse(obj.responseText);
+						console.log(arguments)
+//						console.log(typeof mydate)
+						var v_ul = $("<ul></ul>")
+						for(var i=0; i<date.length; i++){
+							console.log(date[i]);
+							$("<li>"+date[i].name+" "+"<a href="+date[i].href+">"+date[i].href+"</a></li>").appendTo(v_ul);
+						}
+						$(".menu").append(v_ul);
+					}else{
+						alert("获取失败！")
+					}
+				});
+			})
+		</script>
+	</body>
+</html>

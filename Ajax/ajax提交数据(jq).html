@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>ajax提交数据</title>
+		<script src="js/jquery-3.0.0.js"></script>
+	</head>
+	<body>
+		<form action="">
+			网站：<input name="name" /><br /><br />
+			网址：<input name="href" /><br /><br />
+			
+		</form>
+		<button>提交</button>
+		<script>
+			var url = "http://localhost:5000/my-objects"
+			$("button").click(function(e){
+				var name = $("input:first").val();
+				var href = $("input:last").val();
+				console.log(name);
+				console.log(href);
+				var obj = {
+					"name":name,
+					"href":href
+				};
+				var date = JSON.stringify(obj);
+//				console.log(date);
+//				console.log($("form").serialize());
+				$.post(url,$("form").serialize(),function(){
+					alert("成功！")
+				});
+//				e.preventDafault();//把按钮的默认行为阻止掉
+			})
+		</script>
+	</body>
+</html>
